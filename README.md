@@ -67,9 +67,6 @@ $ npm run build
 
 # deploy using serveless
 $ serverless deploy
-
-# test coverage
-$ npm run test:cov
 ```
 
 ## Resources
