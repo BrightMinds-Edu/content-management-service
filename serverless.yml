@@ -1,0 +1,26 @@
+   service: content-management-service
+
+   provider:
+     name: aws
+     runtime: nodejs18.x
+     region: eu-north-1
+
+   functions:
+     api:
+       handler: dist/lambda.handler
+       events:
+         - http:
+             path: /{proxy+}
+             method: ANY
+             cors: true  # Enable CORS for all endpoints
+
+   plugins:
+     - serverless-offline
+
+   custom:
+     serverless-offline:
+       httpPort: 3000
+
+   package:
+     include:
+       - dist/**
